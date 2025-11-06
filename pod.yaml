@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod-${RANDOM_ID}
+  namespace: default
+  labels:
+    app: mypod
+spec:
+  containers:
+  - name: mypod
+    image: rancher/hello-world
