@@ -11,7 +11,8 @@ on:
 
 jobs:
   build-and-run-docker:
-    runs-on: ubuntu-24.04
+    runs-on: self-hosted
+
 
     steps:
       - name: Check out repository
