@@ -14,21 +14,23 @@ jobs:
 
       - name: Generate random pod name
         id: generate
-        shell: bash
-        run: echo "RANDOM_ID=$RANDOM" >> $GITHUB_ENV
+        shell: pwsh
+        run: |
+          $rand = Get-Random -Maximum 99999
+          echo "RANDOM_ID=$rand" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - name: Show random pod name
-        shell: bash
+        shell: pwsh
         run: |
-          echo "Generated Pod name: mypod-${{ env.RANDOM_ID }}"
+          Write-Host "Generated Pod name: mypod-$env:RANDOM_ID"
 
       - name: Replace variable in pod.yaml and apply
-        shell: bash
+        shell: pwsh
         run: |
-          sed "s/\${RANDOM_ID}/${{ env.RANDOM_ID }}/g" pod.yaml > pod-temp.yaml
+          (Get-Content pod.yaml) -replace '\$\{RANDOM_ID\}', $env:RANDOM_ID | Set-Content pod-temp.yaml
           kubectl apply -f pod-temp.yaml
 
       - name: Verify pods
-        shell: bash
+        shell: pwsh
         run: |
           kubectl get pods -o wide
