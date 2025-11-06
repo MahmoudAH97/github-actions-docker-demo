@@ -7,21 +7,28 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # Make sure your local runner is active
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Generate random pod name
-        id: vars
+        id: generate
+        shell: bash
         run: echo "RANDOM_ID=$RANDOM" >> $GITHUB_ENV
 
       - name: Show random pod name
-        run: echo "Generated Pod name: mypod-${{ env.RANDOM_ID }}"
-
-      - name: Apply Pod to Kubernetes
+        shell: bash
         run: |
-          kubectl apply -f pod.yaml --filename <(sed "s/\${RANDOM_ID}/${{ env.RANDOM_ID }}/g" pod.yaml)
+          echo "Generated Pod name: mypod-${{ env.RANDOM_ID }}"
+
+      - name: Replace variable in pod.yaml and apply
+        shell: bash
+        run: |
+          sed "s/\${RANDOM_ID}/${{ env.RANDOM_ID }}/g" pod.yaml > pod-temp.yaml
+          kubectl apply -f pod-temp.yaml
 
       - name: Verify pods
-        run: kubectl get pods -o wide
+        shell: bash
+        run: |
+          kubectl get pods -o wide
