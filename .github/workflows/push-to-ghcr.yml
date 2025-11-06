@@ -11,6 +11,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Convert repository owner to lowercase
+        id: repo
+        run: echo "repo_lower=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -25,9 +29,10 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/mahmoudah97/hello-world-nginx:latest
-            ghcr.io/mahmoudah97/hello-world-nginx:${{ github.ref_name }}
-            ghcr.io/mahmoudah97/hello-world-nginx:${{ github.sha }}
+            ghcr.io/${{ env.repo_lower }}/hello-world-nginx:latest
+            ghcr.io/${{ env.repo_lower }}/hello-world-nginx:${{ github.ref_name }}
+            ghcr.io/${{ env.repo_lower }}/hello-world-nginx:${{ github.sha }}
 
       - name: Verify
+        if: success()
         run: echo "✅ Successfully built and pushed image to GHCR"
