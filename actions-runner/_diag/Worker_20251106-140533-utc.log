@@ -1,0 +1,4967 @@
+[2025-11-06 14:05:33Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.credentials'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'Runner': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.runner'
+[2025-11-06 14:05:33Z INFO Worker] Version: 2.329.0
+[2025-11-06 14:05:33Z INFO Worker] Commit: c76c59996c8fa32e989164a5a695efb12608ae5a
+[2025-11-06 14:05:33Z INFO Worker] Culture: en-US
+[2025-11-06 14:05:33Z INFO Worker] UI Culture: en-US
+[2025-11-06 14:05:33Z INFO Worker] Waiting to receive the job message from the channel.
+[2025-11-06 14:05:33Z INFO ProcessChannel] Receiving message of length 25060, with hash '0c3970c9199b7c6b3d68dcc3e06a8de1fadc6aeacfab019415e7631e4306256d'
+[2025-11-06 14:05:33Z INFO Worker] Message received.
+[2025-11-06 14:05:33Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/push-to-ghcr.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 19,
+        "col": 15,
+        "lit": "Check out repository"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "592f88d3-242f-4ed9-a905-9639d511bc04",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 22,
+        "col": 15,
+        "lit": "Convert repository owner to lowercase"
+      },
+      "contextName": "repo",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 24,
+              "col": 14,
+              "expr": "format('echo \"repo_lower=$(echo ''{0}'' | tr ''[:upper:]'' ''[:lower:]'')\" >> $GITHUB_ENV\necho \"✅ Repository owner in lowercase: $repo_lower\"\n', github.repository_owner)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "afdebff3-ce01-4b6e-baad-e6d0c9260e51",
+      "name": "repo"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/login-action",
+        "ref": "v3",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 28,
+        "col": 15,
+        "lit": "Log in to GitHub Container Registry"
+      },
+      "contextName": "__docker_login-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 31,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 31,
+              "col": 11,
+              "lit": "registry"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 31,
+              "col": 21,
+              "lit": "ghcr.io"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 32,
+              "col": 11,
+              "lit": "username"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 32,
+              "col": 21,
+              "expr": "github.actor"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 33,
+              "col": 11,
+              "lit": "password"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 33,
+              "col": 21,
+              "expr": "secrets.GITHUB_TOKEN"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "1b882eee-7744-4fd8-84ad-7a449a754746",
+      "name": "__docker_login-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/setup-buildx-action",
+        "ref": "v3",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 35,
+        "col": 15,
+        "lit": "Set up Docker Buildx"
+      },
+      "contextName": "__docker_setup-buildx-action",
+      "condition": "success()",
+      "id": "7c299e2c-dbae-4c6d-a9bd-ccff36ab94ab",
+      "name": "__docker_setup-buildx-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/build-push-action",
+        "ref": "v6",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 38,
+        "col": 15,
+        "lit": "Build and push Docker image to GHCR"
+      },
+      "contextName": "__docker_build-push-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 41,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 41,
+              "col": 11,
+              "lit": "context"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 41,
+              "col": 20,
+              "lit": "."
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 42,
+              "col": 11,
+              "lit": "file"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 42,
+              "col": 17,
+              "lit": "./Dockerfile"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 43,
+              "col": 11,
+              "lit": "push"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 43,
+              "col": 17,
+              "lit": "true"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 44,
+              "col": 11,
+              "lit": "provenance"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 44,
+              "col": 23,
+              "lit": "false"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 45,
+              "col": 11,
+              "lit": "tags"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 45,
+              "col": 17,
+              "expr": "format('ghcr.io/{0}/hello-world-nginx:latest\nghcr.io/{1}/hello-world-nginx:{2}\nghcr.io/{3}/hello-world-nginx:{4}\n', env.repo_lower, env.repo_lower, github.ref_name, env.repo_lower, github.sha)"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 49,
+              "col": 11,
+              "lit": "labels"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 49,
+              "col": 19,
+              "expr": "format('org.opencontainers.image.source=https://github.com/{0}\norg.opencontainers.image.created={1}\norg.opencontainers.image.revision={2}\norg.opencontainers.image.version={3}\n', github.repository, github.event.head_commit.timestamp, github.sha, github.ref_name)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "aea968ec-06fa-464a-b85b-2ddae7ce636b",
+      "name": "__docker_build-push-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 55,
+        "col": 15,
+        "lit": "Verify push result"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 57,
+              "col": 14,
+              "expr": "format('echo \"✅ Successfully built and pushed image to GHCR\"\necho \"🚀 Image URL: ghcr.io/{0}/hello-world-nginx:latest\"\n', env.repo_lower)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "50bf55bf-2081-46b2-96ce-cc2de68caa82",
+      "name": "__run"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_container_action_runner_temp": {
+      "value": "false"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "build-and-push"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"write\"}"
+    },
+    "system.orchestrationId": {
+      "value": "9f2ad005-1a3f-4932-a9b0-88f5681b7236.build-and-push.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "build-and-push"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "9f2ad005-1a3f-4932-a9b0-88f5681b7236",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "9f2ad005-1a3f-4932-a9b0-88f5681b7236",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "e53c57a0-899c-5694-a916-19fea2edc19e",
+  "jobDisplayName": "build-and-push",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/i5kp7pqZtERevUn9z402RyUE0iUEXOMQWPHn9K126eKFV2ug3l/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus15.actions.githubusercontent.com/i5kp7pqZtERevUn9z402RyUE0iUEXOMQWPHn9K126eKFV2ug3l/",
+          "GenerateIdTokenUrl": "https://run-actions-2-azure-eastus.actions.githubusercontent.com/67//idtoken/9f2ad005-1a3f-4932-a9b0-88f5681b7236/e53c57a0-899c-5694-a916-19fea2edc19e?api-version=2.0"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-2-azure-eastus.actions.githubusercontent.com/67/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/01_DockerTest"
+        },
+        {
+          "k": "sha",
+          "v": "6669ffc68d352e76253ae357bcedb2fed2ba56b5"
+        },
+        {
+          "k": "repository",
+          "v": "MahmoudAH97/github-actions-docker-demo"
+        },
+        {
+          "k": "repository_owner",
+          "v": "MahmoudAH97"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "235469746"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/MahmoudAH97/github-actions-docker-demo.git"
+        },
+        {
+          "k": "run_id",
+          "v": "19138227305"
+        },
+        {
+          "k": "run_number",
+          "v": "2"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "235469746"
+        },
+        {
+          "k": "actor",
+          "v": "MahmoudAH97"
+        },
+        {
+          "k": "workflow",
+          "v": "Push Docker Image to GHCR"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "01_DockerTest"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "6669ffc68d352e76253ae357bcedb2fed2ba56b5"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "1c9f9ff6d18d90253e89e372899a6f1c6f4f1e02"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "mahmoud.asadi.heris@student.howest.be"
+                              },
+                              {
+                                "k": "name",
+                                "v": "MAHMOUD ASADI HERIS"
+                              },
+                              {
+                                "k": "username",
+                                "v": "MahmoudAH97"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "mahmoud.asadi.heris@student.howest.be"
+                              },
+                              {
+                                "k": "name",
+                                "v": "MAHMOUD ASADI HERIS"
+                              },
+                              {
+                                "k": "username",
+                                "v": "MahmoudAH97"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "6669ffc68d352e76253ae357bcedb2fed2ba56b5"
+                        },
+                        {
+                          "k": "message",
+                          "v": "last update"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2025-11-06T15:02:28+01:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "6fd7800d4f6f090256a4b00a0b2f4f6c11bfc9b2"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/MahmoudAH97/github-actions-docker-demo/commit/6669ffc68d352e76253ae357bcedb2fed2ba56b5"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/MahmoudAH97/github-actions-docker-demo/compare/1c9f9ff6d18d...6669ffc68d35"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "mahmoud.asadi.heris@student.howest.be"
+                          },
+                          {
+                            "k": "name",
+                            "v": "MAHMOUD ASADI HERIS"
+                          },
+                          {
+                            "k": "username",
+                            "v": "MahmoudAH97"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "mahmoud.asadi.heris@student.howest.be"
+                          },
+                          {
+                            "k": "name",
+                            "v": "MAHMOUD ASADI HERIS"
+                          },
+                          {
+                            "k": "username",
+                            "v": "MahmoudAH97"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "6669ffc68d352e76253ae357bcedb2fed2ba56b5"
+                    },
+                    {
+                      "k": "message",
+                      "v": "last update"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2025-11-06T15:02:28+01:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "6fd7800d4f6f090256a4b00a0b2f4f6c11bfc9b2"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/MahmoudAH97/github-actions-docker-demo/commit/6669ffc68d352e76253ae357bcedb2fed2ba56b5"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "Mahmoud.asadi.heris@student.howest.be"
+                    },
+                    {
+                      "k": "name",
+                      "v": "MahmoudAH97"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/01_DockerTest"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/MahmoudAH97/github-actions-docker-demo.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1762429704.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "MahmoudAH97/github-actions-docker-demo"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/MahmoudAH97/github-actions-docker-demo.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/MahmoudAH97/github-actions-docker-demo"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1090976738.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "HTML"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "github-actions-docker-demo"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOQQb74g"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/235469746?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "Mahmoud.asadi.heris@student.howest.be"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/MahmoudAH97"
+                          },
+                          {
+                            "k": "id",
+                            "v": 235469746.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "MahmoudAH97"
+                          },
+                          {
+                            "k": "name",
+                            "v": "MahmoudAH97"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDODgj7sg"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/MahmoudAH97/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/MahmoudAH97"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1762437813.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 7.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:MahmoudAH97/github-actions-docker-demo.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/MahmoudAH97/github-actions-docker-demo"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2025-11-06T13:33:17Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/MahmoudAH97/github-actions-docker-demo"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/235469746?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/MahmoudAH97"
+                    },
+                    {
+                      "k": "id",
+                      "v": 235469746.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "MahmoudAH97"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDODgj7sg"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/MahmoudAH97/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/MahmoudAH97"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "MahmoudAH97/github-actions-docker-demo/.github/workflows/push-to-ghcr.yml@refs/heads/01_DockerTest"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "6669ffc68d352e76253ae357bcedb2fed2ba56b5"
+        },
+        {
+          "k": "repository_id",
+          "v": "1090976738"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "MahmoudAH97"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 54695799281.0
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "billingOwnerId": "U_kgDODgj7sg"
+}
+[2025-11-06 14:05:33Z INFO JobRunner] Job ID e53c57a0-899c-5694-a916-19fea2edc19e
+[2025-11-06 14:05:33Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin\Runner.Worker.dll
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO ConfigurationStore] binPath: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO ConfigurationStore] RootFolder: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'Runner': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.runner'
+[2025-11-06 14:05:33Z INFO ConfigurationStore] ConfigFilePath: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.runner
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.runner_migrated'
+[2025-11-06 14:05:33Z INFO ConfigurationStore] MigratedConfigFilePath: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.runner_migrated
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.credentials'
+[2025-11-06 14:05:33Z INFO ConfigurationStore] CredFilePath: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.credentials
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.credentials_migrated'
+[2025-11-06 14:05:33Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.credentials_migrated
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'Service': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.service'
+[2025-11-06 14:05:33Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.service
+[2025-11-06 14:05:33Z INFO ConfigurationStore] Read setting file: 417 chars
+[2025-11-06 14:05:33Z INFO JobRunner] Initializing launch client
+[2025-11-06 14:05:33Z INFO JobServerQueue] Initializing results client
+[2025-11-06 14:05:33Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2025-11-06 14:05:33Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2025-11-06 14:05:33Z INFO JobServerQueue] Start process web console line queue.
+[2025-11-06 14:05:33Z INFO JobServerQueue] Start process file upload queue.
+[2025-11-06 14:05:33Z INFO JobServerQueue] Start results file upload queue.
+[2025-11-06 14:05:33Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-11-06 14:05:33Z INFO JobServerQueue] Start process timeline update queue.
+[2025-11-06 14:05:33Z INFO ExecutionContext] Initializing Job context
+[2025-11-06 14:05:33Z INFO ExecutionContext] Initialize GitHub context
+[2025-11-06 14:05:33Z INFO ExecutionContext] Initialize Env context
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:33Z INFO JobRunner] Starting the job execution context.
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO JobRunner] Validating directory permissions for: 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Tools': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_tool'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Temp': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp'
+[2025-11-06 14:05:33Z INFO JobRunner] Getting job extension.
+[2025-11-06 14:05:33Z INFO JobRunner] Initialize job. Getting all job steps.
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.credentials'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known config file 'SetupInfo': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\.setup_info'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_PipelineMapping\MahmoudAH97/github-actions-docker-demo\PipelineFolder.json
+[2025-11-06 14:05:33Z INFO PipelineDirectoryManager] Updating job run properties.
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO JobExtension] Downloading actions
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:33Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:33Z INFO Worker] Listening for cancel message from the channel.
+[2025-11-06 14:05:33Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2025-11-06 14:05:34Z INFO ResultServer] Successfully started websocket client.
+[2025-11-06 14:05:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record '50e7b220-8f67-4244-b789-1cec0ba1cc6f', success rate: 1/1.
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:34Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:34Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/08eba0b27e820071cde6df949e0beb9ba4906955' into C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\_temp_a131f67c-a484-4be4-9469-397595dd91d1\3dba8ee4-00a6-4483-b9d3-4a9591146dd2.zip.
+[2025-11-06 14:05:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record '50e7b220-8f67-4244-b789-1cec0ba1cc6f', success rate: 1/1.
+[2025-11-06 14:05:34Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2025-11-06 14:05:35Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/zipball/08eba0b27e820071cde6df949e0beb9ba4906955 X-GitHub-Request-Id: EDB4:23883C:2A159D:326C83:690CAB2F Http Status: OK
+[2025-11-06 14:05:35Z INFO ActionManager] Finished getting action repository.
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:35Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/login-action/zipball/5e57cd118135c172c3672efd75eb46360885c0ef' into C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\_temp_6fbc71df-2717-413c-bfdc-3132920e879c\dca5f49e-9885-40c5-a294-51c9db632c57.zip.
+[2025-11-06 14:05:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record '50e7b220-8f67-4244-b789-1cec0ba1cc6f', success rate: 1/1.
+[2025-11-06 14:05:36Z INFO ActionManager] Request URL: https://api.github.com/repos/docker/login-action/zipball/5e57cd118135c172c3672efd75eb46360885c0ef X-GitHub-Request-Id: EDB6:9496D:298613:31DD64:690CAB30 Http Status: OK
+[2025-11-06 14:05:36Z INFO ActionManager] Finished getting action repository.
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:36Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:36Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/setup-buildx-action/zipball/e468171a9de216ec08956ac3ada2f0791b6bd435' into C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\_temp_3a8da582-f096-4f90-9b1e-28b2ed4f66f9\5240449d-1d4c-4538-bac7-5c35a0305193.zip.
+[2025-11-06 14:05:36Z INFO JobServerQueue] Try to append 1 batches web console lines for record '50e7b220-8f67-4244-b789-1cec0ba1cc6f', success rate: 1/1.
+[2025-11-06 14:05:37Z INFO ActionManager] Request URL: https://api.github.com/repos/docker/setup-buildx-action/zipball/e468171a9de216ec08956ac3ada2f0791b6bd435 X-GitHub-Request-Id: EDB8:2363E8:69739:75B40:690CAB31 Http Status: OK
+[2025-11-06 14:05:37Z INFO ActionManager] Finished getting action repository.
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:37Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:37Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/build-push-action/zipball/263435318d21b8e681c14492fe198d362a7d2c83' into C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\_temp_4e5e8496-d548-4173-b3d8-53c39adf6bc7\0680e8c1-364a-41e6-8c7e-61a996cee3b4.zip.
+[2025-11-06 14:05:37Z INFO JobServerQueue] Try to append 1 batches web console lines for record '50e7b220-8f67-4244-b789-1cec0ba1cc6f', success rate: 1/1.
+[2025-11-06 14:05:38Z INFO ActionManager] Request URL: https://api.github.com/repos/docker/build-push-action/zipball/263435318d21b8e681c14492fe198d362a7d2c83 X-GitHub-Request-Id: EDBA:23883C:2A161D:326D3F:690CAB32 Http Status: OK
+[2025-11-06 14:05:38Z INFO ActionManager] Finished getting action repository.
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:38Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:38Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManager] Load action that reference repository from 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property author.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property branding.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 22,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 24,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "registry-auth"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManager] Load action that reference repository from 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\docker\login-action\v3'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property author.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property branding.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 22,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 24,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "registry-auth"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property author.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property branding.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Setup Buildx",
+  "description": "Set up Docker Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "driver"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 15,
+          "col": 14,
+          "lit": "docker-container"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 17,
+          "col": 3,
+          "lit": "driver-opts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 20,
+          "col": 3,
+          "lit": "buildkitd-flags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 23,
+          "col": 3,
+          "lit": "buildkitd-config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 26,
+          "col": 3,
+          "lit": "buildkitd-config-inline"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 29,
+          "col": 3,
+          "lit": "install"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 31,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 33,
+          "col": 3,
+          "lit": "use"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 35,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 37,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 40,
+          "col": 3,
+          "lit": "endpoint"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 43,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 46,
+          "col": 3,
+          "lit": "append"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 49,
+          "col": 3,
+          "lit": "keep-state"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 53,
+          "col": 3,
+          "lit": "cache-binary"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 57,
+          "col": 3,
+          "lit": "cleanup"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 62,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 66,
+          "col": 3,
+          "lit": "config-inline"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": {
+    "config": "Use buildkitd-config instead",
+    "config-inline": "Use buildkitd-config-inline instead"
+  }
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManager] Load action that reference repository from 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\docker\setup-buildx-action\v3'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property author.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property branding.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Setup Buildx",
+  "description": "Set up Docker Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "driver"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 15,
+          "col": 14,
+          "lit": "docker-container"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 17,
+          "col": 3,
+          "lit": "driver-opts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 20,
+          "col": 3,
+          "lit": "buildkitd-flags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 23,
+          "col": 3,
+          "lit": "buildkitd-config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 26,
+          "col": 3,
+          "lit": "buildkitd-config-inline"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 29,
+          "col": 3,
+          "lit": "install"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 31,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 33,
+          "col": 3,
+          "lit": "use"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 35,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 37,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 40,
+          "col": 3,
+          "lit": "endpoint"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 43,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 46,
+          "col": 3,
+          "lit": "append"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 49,
+          "col": 3,
+          "lit": "keep-state"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 53,
+          "col": 3,
+          "lit": "cache-binary"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 57,
+          "col": 3,
+          "lit": "cleanup"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 62,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 66,
+          "col": 3,
+          "lit": "config-inline"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": {
+    "config": "Use buildkitd-config instead",
+    "config-inline": "Use buildkitd-config-inline instead"
+  }
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property author.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property branding.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 10,
+          "col": 3,
+          "lit": "add-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 13,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 16,
+          "col": 3,
+          "lit": "annotations"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 19,
+          "col": 3,
+          "lit": "attests"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 22,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 25,
+          "col": 3,
+          "lit": "build-contexts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 28,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 31,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 34,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 37,
+          "col": 3,
+          "lit": "call"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 40,
+          "col": 3,
+          "lit": "cgroup-parent"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 43,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 46,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 49,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 52,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 55,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 56,
+          "col": 3,
+          "lit": "network"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 59,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 62,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 63,
+          "col": 3,
+          "lit": "no-cache-filters"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 66,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 69,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 72,
+          "col": 3,
+          "lit": "provenance"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 75,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 78,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 79,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 83,
+          "col": 3,
+          "lit": "sbom"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 86,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 89,
+          "col": 3,
+          "lit": "secret-envs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 92,
+          "col": 3,
+          "lit": "secret-files"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 95,
+          "col": 3,
+          "lit": "shm-size"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 98,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 101,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 104,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 107,
+          "col": 3,
+          "lit": "ulimit"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 110,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 5,
+          "line": 112,
+          "col": 14,
+          "expr": "github.token"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManager] Load action that reference repository from 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\docker\build-push-action\v6'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property author.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Ignore action property branding.
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 10,
+          "col": 3,
+          "lit": "add-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 13,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 16,
+          "col": 3,
+          "lit": "annotations"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 19,
+          "col": 3,
+          "lit": "attests"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 22,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 25,
+          "col": 3,
+          "lit": "build-contexts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 28,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 31,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 34,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 37,
+          "col": 3,
+          "lit": "call"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 40,
+          "col": 3,
+          "lit": "cgroup-parent"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 43,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 46,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 49,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 52,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 55,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 56,
+          "col": 3,
+          "lit": "network"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 59,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 62,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 63,
+          "col": 3,
+          "lit": "no-cache-filters"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 66,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 69,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 72,
+          "col": 3,
+          "lit": "provenance"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 75,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 78,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 79,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 83,
+          "col": 3,
+          "lit": "sbom"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 86,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 89,
+          "col": 3,
+          "lit": "secret-envs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 92,
+          "col": 3,
+          "lit": "secret-files"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 95,
+          "col": 3,
+          "lit": "shm-size"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 98,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 101,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 104,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 107,
+          "col": 3,
+          "lit": "ulimit"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 110,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 5,
+          "line": 112,
+          "col": 14,
+          "expr": "github.token"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO JobExtension] Adding .
+[2025-11-06 14:05:39Z INFO JobExtension] Adding .
+[2025-11-06 14:05:39Z INFO JobExtension] Adding .
+[2025-11-06 14:05:39Z INFO JobExtension] Adding .
+[2025-11-06 14:05:39Z INFO JobExtension] Adding .
+[2025-11-06 14:05:39Z INFO JobExtension] Adding .
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO JobExtension] Total accessible running process: 357.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO JobExtension] Start checking service connectivity in background.
+[2025-11-06 14:05:39Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "50e7b220-8f67-4244-b789-1cec0ba1cc6f",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 6,
+  "startTime": "2025-11-06T14:05:33.8082186Z",
+  "finishTime": "2025-11-06T14:05:39.0617075Z"
+}.
+[2025-11-06 14:05:39Z INFO JobRunner] Total job steps: 6.
+[2025-11-06 14:05:39Z INFO JobRunner] Waiting for job to be marked as started.
+[2025-11-06 14:05:39Z INFO JobRunner] Run all job steps.
+[2025-11-06 14:05:39Z INFO StepsRunner] Processing step: DisplayName='Check out repository'
+[2025-11-06 14:05:39Z INFO StepsRunner] Evaluating: success()
+[2025-11-06 14:05:39Z INFO StepsRunner] Result: true
+[2025-11-06 14:05:39Z INFO StepsRunner] Starting the step.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO StepsRunner] Which2: 'chcp'
+[2025-11-06 14:05:39Z INFO StepsRunner] Location: 'C:\Windows\System32\chcp.COM'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\chcp.COM'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper] Process started with process id 13088, waiting for process exit.
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper] Finished process 13088 with exit code 0, and elapsed time 00:00:00.0127418.
+[2025-11-06 14:05:39Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManager] Load action that reference repository from 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:39Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-06 14:05:39Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-11-06 14:05:39Z INFO ExecutionContext] Reserve record order 8 to 14 for post job actions.
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Temp': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp'
+[2025-11-06 14:05:39Z INFO ExecutionContext] Write event payload to C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Temp': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp'
+[2025-11-06 14:05:39Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-11-06 14:05:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record '50e7b220-8f67-4244-b789-1cec0ba1cc6f', success rate: 1/1.
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "MahmoudAH97/github-actions-docker-demo"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:39Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-11-06 14:05:39Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command error
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command group
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-11-06 14:05:39Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:39Z INFO HostContext] Well known directory 'Externals': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\externals'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\externals\node20\bin\node.exe'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\github-actions-docker-demo\github-actions-docker-demo'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-06 14:05:39Z INFO ProcessInvokerWrapper] Process started with process id 23944, waiting for process exit.
+[2025-11-06 14:05:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:39Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2025-11-06 14:05:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:39Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-06 14:05:39Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag\blocks\9f2ad005-1a3f-4932-a9b0-88f5681b7236_50e7b220-8f67-4244-b789-1cec0ba1cc6f.1
+[2025-11-06 14:05:39Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-11-06 14:05:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:40Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-11-06 14:05:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] Finished process 23944 with exit code 1, and elapsed time 00:00:10.0473586.
+[2025-11-06 14:05:49Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp\_runner_file_commands\step_summary_ccf220ff-35e2-4329-a8f9-c41ebcf06c28) is empty; skipping attachment upload
+[2025-11-06 14:05:49Z INFO StepsRunner] Step result: Failed
+[2025-11-06 14:05:49Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "592f88d3-242f-4ed9-a905-9639d511bc04",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "failed",
+  "errorMessages": [
+    "unable to create file actions-runner/_work/_PipelineMapping/MahmoudAH97/github-actions-docker-demo/PipelineFolder.json: Filename too long",
+    "unable to create file actions-runner/_work/_actions/actions/checkout/v4/.github/workflows/publish-immutable-actions.yml: Filename too long",
+    "unable to create file actions-runner/_work/_actions/actions/checkout/v4/.github/workflows/update-test-ubuntu-git.yml: Filename too long"
+  ],
+  "executionTimeInSeconds": 11,
+  "startTime": "2025-11-06T14:05:39.0731174Z",
+  "finishTime": "2025-11-06T14:05:49.1942505Z"
+}.
+[2025-11-06 14:05:49Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2025-11-06 14:05:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-06 14:05:49Z INFO StepsRunner] Processing step: DisplayName='Convert repository owner to lowercase'
+[2025-11-06 14:05:49Z INFO StepsRunner] Evaluating: success()
+[2025-11-06 14:05:49Z INFO StepsRunner] Result: false
+[2025-11-06 14:05:49Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-06 14:05:49Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-06 14:05:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-06 14:05:49Z INFO StepsRunner] Processing step: DisplayName='Log in to GitHub Container Registry'
+[2025-11-06 14:05:49Z INFO StepsRunner] Evaluating: success()
+[2025-11-06 14:05:49Z INFO StepsRunner] Result: false
+[2025-11-06 14:05:49Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-06 14:05:49Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-06 14:05:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-06 14:05:49Z INFO StepsRunner] Processing step: DisplayName='Set up Docker Buildx'
+[2025-11-06 14:05:49Z INFO StepsRunner] Evaluating: success()
+[2025-11-06 14:05:49Z INFO StepsRunner] Result: false
+[2025-11-06 14:05:49Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-06 14:05:49Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-06 14:05:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-06 14:05:49Z INFO StepsRunner] Processing step: DisplayName='Build and push Docker image to GHCR'
+[2025-11-06 14:05:49Z INFO StepsRunner] Evaluating: success()
+[2025-11-06 14:05:49Z INFO StepsRunner] Result: false
+[2025-11-06 14:05:49Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-06 14:05:49Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-06 14:05:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-06 14:05:49Z INFO StepsRunner] Processing step: DisplayName='Verify push result'
+[2025-11-06 14:05:49Z INFO StepsRunner] Evaluating: success()
+[2025-11-06 14:05:49Z INFO StepsRunner] Result: false
+[2025-11-06 14:05:49Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-06 14:05:49Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-06 14:05:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-06 14:05:49Z INFO StepsRunner] Processing step: DisplayName='Post Check out repository'
+[2025-11-06 14:05:49Z INFO StepsRunner] Evaluating: always()
+[2025-11-06 14:05:49Z INFO StepsRunner] Result: true
+[2025-11-06 14:05:49Z INFO StepsRunner] Starting the step.
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:49Z INFO StepsRunner] Which2: 'chcp'
+[2025-11-06 14:05:49Z INFO StepsRunner] Location: 'C:\Windows\System32\chcp.COM'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\chcp.COM'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] Process started with process id 28428, waiting for process exit.
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] Finished process 28428 with exit code 0, and elapsed time 00:00:00.0102988.
+[2025-11-06 14:05:49Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:49Z INFO ActionManager] Load action that reference repository from 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Actions': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions'
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-06 14:05:49Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-06 14:05:49Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-11-06 14:05:49Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Temp': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp'
+[2025-11-06 14:05:49Z INFO ExecutionContext] Write event payload to C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Temp': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp'
+[2025-11-06 14:05:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "MahmoudAH97/github-actions-docker-demo"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-06 14:05:49Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-11-06 14:05:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command error
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command group
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-11-06 14:05:49Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:49Z INFO HostContext] Well known directory 'Externals': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\externals'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\externals\node20\bin\node.exe'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\github-actions-docker-demo\github-actions-docker-demo'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-06 14:05:49Z INFO ProcessInvokerWrapper] Process started with process id 15060, waiting for process exit.
+[2025-11-06 14:05:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '592f88d3-242f-4ed9-a905-9639d511bc04', success rate: 1/1.
+[2025-11-06 14:05:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '5b5fd434-30db-41be-8ed3-dd7be6bc2116', success rate: 1/1.
+[2025-11-06 14:05:49Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2025-11-06 14:05:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '5b5fd434-30db-41be-8ed3-dd7be6bc2116', success rate: 1/1.
+[2025-11-06 14:05:49Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-06 14:05:49Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag\blocks\9f2ad005-1a3f-4932-a9b0-88f5681b7236_592f88d3-242f-4ed9-a905-9639d511bc04.1
+[2025-11-06 14:05:49Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-11-06 14:05:50Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-11-06 14:05:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '5b5fd434-30db-41be-8ed3-dd7be6bc2116', success rate: 1/1.
+[2025-11-06 14:05:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-06 14:05:50Z INFO ProcessInvokerWrapper] Finished process 15060 with exit code 0, and elapsed time 00:00:01.6964534.
+[2025-11-06 14:05:50Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp\_runner_file_commands\step_summary_287f7e2b-8e3d-4b6d-978d-c99d71db4bde) is empty; skipping attachment upload
+[2025-11-06 14:05:50Z INFO StepsRunner] Step result: 
+[2025-11-06 14:05:50Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "5b5fd434-30db-41be-8ed3-dd7be6bc2116",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2025-11-06T14:05:49.1998722Z",
+  "finishTime": "2025-11-06T14:05:50.9226927Z"
+}.
+[2025-11-06 14:05:50Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-11-06 14:05:50Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-06 14:05:50Z INFO JobRunner] Finalize job.
+[2025-11-06 14:05:50Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:50Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:50Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:50Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:50Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:50Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:50Z INFO JobExtension] Initialize Env context
+[2025-11-06 14:05:50Z INFO JobExtension] Initialize steps context
+[2025-11-06 14:05:50Z INFO JobExtension] Total accessible running process: 357.
+[2025-11-06 14:05:50Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "0d751787-e6a4-4acd-9556-b60696180fef",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-11-06T14:05:50.926906Z",
+  "finishTime": "2025-11-06T14:05:50.9382558Z"
+}.
+[2025-11-06 14:05:50Z INFO JobRunner] Job result after all job steps finish: Failed
+[2025-11-06 14:05:50Z INFO JobRunner] Completing the job execution context.
+[2025-11-06 14:05:50Z INFO JobRunner] Shutting down the job server queue.
+[2025-11-06 14:05:50Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2025-11-06 14:05:51Z INFO JobServerQueue] All queue process task stopped.
+[2025-11-06 14:05:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0d751787-e6a4-4acd-9556-b60696180fef', success rate: 1/1.
+[2025-11-06 14:05:51Z INFO JobServerQueue] Web console line queue drained.
+[2025-11-06 14:05:51Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2025-11-06 14:05:51Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2025-11-06 14:05:51Z INFO JobServerQueue] File upload queue drained.
+[2025-11-06 14:05:51Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-11-06 14:05:51Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2025-11-06 14:05:51Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-06 14:05:51Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag\blocks\9f2ad005-1a3f-4932-a9b0-88f5681b7236_5b5fd434-30db-41be-8ed3-dd7be6bc2116.1
+[2025-11-06 14:05:52Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-06 14:05:52Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag\blocks\9f2ad005-1a3f-4932-a9b0-88f5681b7236_0d751787-e6a4-4acd-9556-b60696180fef.1
+[2025-11-06 14:05:52Z INFO JobServerQueue] Got a job log file to send to results service.
+[2025-11-06 14:05:52Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag\blocks\9f2ad005-1a3f-4932-a9b0-88f5681b7236_e53c57a0-899c-5694-a916-19fea2edc19e.1
+[2025-11-06 14:05:53Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2025-11-06 14:05:53Z INFO JobServerQueue] Results upload queue drained.
+[2025-11-06 14:05:53Z INFO JobServerQueue] Timeline update queue drained.
+[2025-11-06 14:05:53Z INFO JobServerQueue] Disposing job server ...
+[2025-11-06 14:05:53Z INFO JobServerQueue] Disposing results server ...
+[2025-11-06 14:05:53Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2025-11-06 14:05:53Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_work\_temp
+[2025-11-06 14:05:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\bin'
+[2025-11-06 14:05:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner'
+[2025-11-06 14:05:53Z INFO HostContext] Well known directory 'Diag': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag'
+[2025-11-06 14:05:53Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\asadi\Desktop\courses\3rdyear\1st sem\MLOps\Asiignments\github-actions-docker-demo\actions-runner\_diag\.telemetry'
+[2025-11-06 14:05:53Z INFO JobRunner] Raising job completed against run service
+[2025-11-06 14:05:53Z INFO Worker] Job completed.
