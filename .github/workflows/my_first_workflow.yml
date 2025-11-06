@@ -1,14 +1,10 @@
-name: My First Workflow
+name: Push Docker Image to GHCR
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
 
 jobs:
-  build-and-push-docker:
+  build-and-push:
     runs-on: self-hosted
 
     steps:
@@ -33,5 +29,5 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/hello-world-nginx:${{ github.ref_name }}
             ghcr.io/${{ github.repository_owner }}/hello-world-nginx:${{ github.sha }}
 
-      - name: Verify image push
-        run: echo "✅ Docker image successfully pushed to GitHub Container Registry!"
+      - name: Verify
+        run: echo "✅ Successfully built and pushed image to GHCR"
