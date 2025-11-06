@@ -28,6 +28,3 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/hello-world-nginx:latest
             ghcr.io/${{ github.repository_owner }}/hello-world-nginx:${{ github.ref_name }}
             ghcr.io/${{ github.repository_owner }}/hello-world-nginx:${{ github.sha }}
-
-      - name: Verify
-        run: echo "✅ Successfully built and pushed image to GHCR"
