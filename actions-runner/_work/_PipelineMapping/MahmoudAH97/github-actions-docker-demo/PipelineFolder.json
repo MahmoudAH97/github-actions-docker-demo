@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "MahmoudAH97/github-actions-docker-demo",
+  "pipelineDirectory": "github-actions-docker-demo",
+  "workspaceDirectory": "github-actions-docker-demo\\github-actions-docker-demo",
+  "repositories": {
+    "MahmoudAH97/github-actions-docker-demo": {
+      "repositoryPath": "github-actions-docker-demo\\github-actions-docker-demo",
+      "lastRunOn": "11/06/2025 14:48:55 +01:00"
+    }
+  },
+  "lastRunOn": "11/06/2025 15:00:05 +01:00"
+}
