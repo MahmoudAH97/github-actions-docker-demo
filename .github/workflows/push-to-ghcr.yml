@@ -3,39 +3,22 @@ name: Push Docker Image to GHCR
 on:
   workflow_dispatch:
 
-permissions:
-  contents: read
-  packages: write
-  actions: read
-
 jobs:
   build-and-push:
     runs-on: self-hosted
-    name: Build and Push Docker Image
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # Ensure Buildx is available (important for cross-platform builds)
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      # Convert repo owner to lowercase (works on both Windows and Linux)
-      - name: Convert repository owner to lowercase (cross-platform)
-        id: repo
-        shell: pwsh
+      - name: Set repository owner to lowercase (Windows-safe)
+        shell: powershell
         run: |
           $owner = "${{ github.repository_owner }}"
-          if ($env:RUNNER_OS -eq "Windows") {
-              $lower = $owner.ToLower()
-              echo "repo_lower=$lower" >> $env:GITHUB_ENV
-          } else {
-              echo "repo_lower=$(echo $owner | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-          }
-          Write-Host "✅ Repository owner in lowercase: $env:repo_lower"
+          $lower = $owner.ToLower()
+          echo "repo_lower=$lower" >> $env:GITHUB_ENV
+          Write-Host "✅ Repository owner in lowercase: $lower"
 
-      # Login to GHCR
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -43,7 +26,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Build and Push the Docker Image
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -55,13 +40,8 @@ jobs:
             ghcr.io/${{ env.repo_lower }}/hello-world-nginx:${{ github.ref_name }}
             ghcr.io/${{ env.repo_lower }}/hello-world-nginx:${{ github.sha }}
 
-      # Verify step
       - name: Verify image push
         if: success()
-        shell: pwsh
+        shell: powershell
         run: |
           Write-Host "✅ Successfully built and pushed image to GHCR"
-          Write-Host "📦 Image tags:"
-          Write-Host "  ghcr.io/${{ env.repo_lower }}/hello-world-nginx:latest"
-          Write-Host "  ghcr.io/${{ env.repo_lower }}/hello-world-nginx:${{ github.ref_name }}"
-          Write-Host "  ghcr.io/${{ env.repo_lower }}/hello-world-nginx:${{ github.sha }}"
